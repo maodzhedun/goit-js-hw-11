@@ -15,4 +15,5 @@ function fetchGalleryImage() {
     return axios.get(`${BASE_URL}?${params}`)
 }
 
+//
 export { fetchGalleryImage }
