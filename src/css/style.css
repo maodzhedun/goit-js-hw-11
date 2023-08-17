@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(225, 207, 179);
+}
+
+.container {
+max-width: 1158px;
+margin: auto;
+padding: 5px;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 0;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.photo-card{
+   /* display: flex; */
+
+   flex-basis: calc((100% - 24px) / 3);
+}
+
+.search-form{
+   display: flex;
+   justify-content: center;
+   margin:  0 auto 20px; 
+}
+
+.img{
+    display: block;
+    max-width: 100%;
+}
+
+.info-item{
+    display: flex;
+}

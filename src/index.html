@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/src/css/style.css">
 </head>
 <body>
-<form class="search-form" id="search-form">
-    <input
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..." />
-    <button type="submit" class="js-btn">Search</button>
-</form>
-<!-- Картки зображень -->
-<div class="gallery">
-</div>
+    <div class="container">
+        <form class="search-form" id="search-form">
+            <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
+            <button type="submit" class="js-btn">Search</button>
+        </form>
+        <!-- Картки зображень -->
+        <div class="gallery">
+        </div>
+    </div>
+
+    <button type="button" class="load-more js-load-more load-more-hidden">Load more</button>
+
 <script type="module" src="index.js"></script>
 </body>
 </html>
