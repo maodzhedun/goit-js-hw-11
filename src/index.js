@@ -75,7 +75,9 @@ async function getImages() {
             return;
         }
 
-        if (totalHitsImg > 40) {const { height: cardHeight } = document
+        if (totalHitsImg > 40) {
+            spanMsg.hidden = true;
+            const { height: cardHeight } = document
         .querySelector(".gallery")
         .firstElementChild.getBoundingClientRect();
 
