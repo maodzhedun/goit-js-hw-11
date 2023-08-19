@@ -10,7 +10,8 @@ let page = 1;
 let value = null;
 let totalHitsImg = 0;
 
-const { searchForm, searchBtn, imageGallery, loadMoreBtn } = refs;
+
+const { searchForm, searchBtn, imageGallery, loadMoreBtn, spanMsg } = refs;
 
 searchForm.addEventListener("submit", createImageGallery);
 
@@ -53,11 +54,11 @@ async function getImages() {
         
      
         total = resp.data.total;
-        console.log('total', total);
+        // console.log('total', total);
         hits = resp.data.hits.length;
-        console.log('hits', hits);
+        // console.log('hits', hits);
         totalHitsImg += hits;
-        console.log('totalHitsImg', totalHitsImg);
+        // console.log('totalHitsImg', totalHitsImg);
 
         
         if (!resp.data.total) {
@@ -68,8 +69,9 @@ async function getImages() {
         lightbox.refresh();
         
         if (totalHitsImg === total || totalHitsImg < 40) { 
-            Notify.info("We're sorry, but you've reached the end of search results.");
+            spanMsg.hidden = false;
             loadMoreBtn.hidden = true;
+            return;
         }
 
         if (totalHitsImg > 40) {const { height: cardHeight } = document
