@@ -70,7 +70,7 @@ async function getImages() {
         lightbox.refresh();
         
         if (totalHitsImg === total || totalHitsImg < 40) { 
-            Notify.info("We're sorry, but you've reached the end of search results.");
+            spanMsg.hidden = false;
             loadMoreBtn.hidden = true;
             return;
         }
