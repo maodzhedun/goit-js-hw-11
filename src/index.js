@@ -23,7 +23,7 @@ function createImageGallery(event) {
         Report.warning('Notiflix Warning', `Sorry, there are no images matching your search query. Please try again.`, 'Okay',);
         return;
     }
-      
+    resetGallery();  
     getImages();
     
     loadMoreBtn.hidden = false;
@@ -70,26 +70,35 @@ async function getImages() {
         lightbox.refresh();
         
         if (totalHitsImg === total || totalHitsImg < 40) { 
-            spanMsg.hidden = false;
+            spanMsg.textContent = "We're sorry, but you've reached the end of search results.";
             loadMoreBtn.hidden = true;
             return;
         }
 
         if (totalHitsImg > 40) {
-            spanMsg.hidden = true;
             const { height: cardHeight } = document
-        .querySelector(".gallery")
-        .firstElementChild.getBoundingClientRect();
-
+            .querySelector(".gallery")
+            .firstElementChild.getBoundingClientRect();
+            
             window.scrollBy({
                 top: cardHeight * 2,
                 behavior: "smooth",
             });
-            loadMoreBtn.hidden = false;
+            spanMsg.hidden = true;
+            // loadMoreBtn.hidden = false;
         }
     } catch (error) {
         Report.failure('404', '');
         console.log(error.message);
     }
 
+}
+
+
+function resetGallery() { 
+    page = 1;
+    totalHitsImg = 0;
+    loadMoreBtn.hidden = true;
+    spanMsg.textContent = "";
+    imageGallery.innerHTML = "";
 }
