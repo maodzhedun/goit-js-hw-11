@@ -53,12 +53,12 @@ async function getImages() {
         const resp = await fetchGalleryImage(page, value);
         
      
-        total = resp.data.total;
-        console.log('total', total);
+        // total = resp.data.total;
+        // console.log('total', total);
         hits = resp.data.hits.length;
-        console.log('hits', hits);
+        // console.log('hits', hits);
         totalHitsImg += hits;
-        console.log('totalHitsImg', totalHitsImg);
+        // console.log('totalHitsImg', totalHitsImg);
 
         
         if (!resp.data.total) {
@@ -69,7 +69,7 @@ async function getImages() {
         imageGallery.insertAdjacentHTML("beforeend", createMarkup(resp.data.hits));
         lightbox.refresh();
         
-        if (totalHitsImg === total || totalHitsImg < 40) { 
+        if (totalHitsImg === resp.data.total || totalHitsImg < 40) { 
             spanMsg.textContent = "We're sorry, but you've reached the end of search results.";
             loadMoreBtn.hidden = true;
             return;
@@ -84,7 +84,7 @@ async function getImages() {
                 top: cardHeight * 2,
                 behavior: "smooth",
             });
-            spanMsg.hidden = true;
+            // spanMsg.hidden = true;
             // loadMoreBtn.hidden = false;
         }
     } catch (error) {
