@@ -55,10 +55,10 @@ async function getImages() {
      
         // total = resp.data.total;
         // console.log('total', total);
-        hits = resp.data.hits.length;
+        // hits = resp.data.hits.length;
         // console.log('hits', hits);
-        totalHitsImg += hits;
-        // console.log('totalHitsImg', totalHitsImg);
+        totalHitsImg += resp.data.hits.length;
+        console.log('totalHitsImg', totalHitsImg);
 
         
         if (!resp.data.total) {
