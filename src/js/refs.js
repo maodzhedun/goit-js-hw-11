@@ -3,5 +3,6 @@ export const refs = {
     searchBtn: document.querySelector(".js-btn"),
     imageGallery: document.querySelector(".gallery"),
     loadMoreBtn: document.querySelector(".js-load-more"),
-    spanMsg: document.querySelector(".js-span")
+    spanMsg: document.querySelector(".js-span"),
+    scrollEl: document.querySelector(".js-guard")
 };
