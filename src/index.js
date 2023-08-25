@@ -42,10 +42,7 @@ loadMoreBtn.addEventListener("click", onLoadMore);
 
 function onLoadMore() { 
     page += 1;
-    // loadMoreBtn.hidden = true;
     getImages();
-    // loadMoreBtn.hidden = false;
-
 }
 
 async function getImages() { 
@@ -54,13 +51,9 @@ async function getImages() {
         
      
         total = resp.data.total;
-        console.log('total', total);
         hits = resp.data.hits.length;
-        console.log('hits', hits);
         totalHitsImg += hits;
-        console.log('totalHitsImg', totalHitsImg);
-
-        
+                
         if (!resp.data.total) {
             Report.warning('Notiflix Warning', `Sorry, there are no images matching your search query. Please try again.`, 'Okay',);
             loadMoreBtn.hidden = true;
