@@ -65,9 +65,7 @@ async function getImages() {
         const resp = await fetchGalleryImage(page, value);
       
      
-        total = resp.data.total;
-        hits = resp.data.hits.length;
-        totalHitsImg += hits;
+        totalHitsImg += resp.data.hits.length;
                 
          if (!resp.data.total) {
             Report.warning('Notiflix Warning', `Sorry, there are no images matching your search query. Please try again.`, 'Okay',);
