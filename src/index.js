@@ -22,7 +22,6 @@ let options = {
 let observer = new IntersectionObserver(smoothScroll, options);
 
 function smoothScroll(entries, observer) { 
-    console.log(entries);
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             onLoadMore();
@@ -70,15 +69,7 @@ async function getImages() {
         hits = resp.data.hits.length;
         totalHitsImg += hits;
                 
-
-          
-        // totalHitsImg += resp.data.hits.length;
-        // console.log('totalHitsImg', totalHitsImg);
-        // console.log("total", resp.data.total);
-
-        
-
-        if (!resp.data.total) {
+         if (!resp.data.total) {
             Report.warning('Notiflix Warning', `Sorry, there are no images matching your search query. Please try again.`, 'Okay',);
             return;
         }
